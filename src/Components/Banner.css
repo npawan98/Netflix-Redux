@@ -24,6 +24,7 @@
 }
 
 .banner__fadeBottom{
+    margin-top: 34px;
     height: 7.4rem;
     background-image: linear-gradient(
         180deg,

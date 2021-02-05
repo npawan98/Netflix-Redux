@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from '../axios'
+import requests from '../Requests'
 import "./Banner.css"
 
 function Banner() {
+    // fetching movie from database
+
+    const[movie,setMovie] =useState([]);
+
+    useEffect(()=>{
+
+        async function fetchData() {
+            const request = await axios.get(requests.fetchNetflixOriginals)
+            setMovie(
+                request.data.results[
+                    Math.floor(Math.random() *  request.data.results.length - 1)
+                ]
+            );
+            return request;
+        }
+
+        fetchData();
+    },[]);
+    console.log(movie)
+
+
     function truncate( string,number){
 
         return string?.length>number ? string.substr(0,number-1) + '....' : string;
@@ -10,24 +33,27 @@ function Banner() {
         // header tag and div class = "header" are same
         <header className="banner" style = {{
             backgroundSize:"cover",
-            backgroundImage:`url("https://lh3.googleusercontent.com/proxy/1IpE3jd5JO0u_iI7jZwrfPbtt8NuaOy7Mbs-xPAETKPyvuMly7fVimJsmte_2-dD1RYIlGgIf3AnM6N1P5xkkRJbsXcTH5KBNhmVyB6WCnZZbOs1Iw5hGRyasetWHYM")`,
+            backgroundImage:`url("https://image.tmdb.org/t/p/original${movie.backdrop_path}")`,
             backgroundPosition:"center center",
         }}>
         
     
         <div className = "banner__content">
-             <h1 className = "banner__title">Movie Name</h1>
+             <h1 className = "banner__title">
+             {movie.name || movie.title || movie.original_name}
+             </h1>
              <div className = "banner__buttons">
              <button className = "banner__button">Play</button>
              <button className = "banner__button">My List</button>
              </div>
              <h1 className = "banner__description">
-             { truncate('This is a temp movie description/ mbanner description This is a temp movie description/ mbanner description This is a temp movie description/ mbanner description',150)}
+             { truncate(`${movie.overview}`,150)}
              </h1>
-            
+             
         </div>
         <div className = "banner__fadeBottom"/>
     </header> 
+   
     )
 }
 
