@@ -23,12 +23,17 @@ console.log(movies)
             {/*fetching movies*/}
             <div className="row__posters">
             {movies.map((movie) => (
-                <img 
-                className = {`row__poster ${isLargeRow && "row__posterLarge"}`}
-                key = {movie.id}
-                src = {`${base_url}${
-                    isLargeRow ? movie.poster_path : movie.backdrop_path
-                }`} alt = {movie.name}/>
+                // removing deadlinks
+                ((isLargeRow && movie.poster_path) || 
+                (!isLargeRow && movie.backdrop_path)) && (
+                    <img 
+                    className = {`row__poster ${isLargeRow && "row__posterLarge"}`}
+                    key = {movie.id}
+                    src = {`${base_url}${
+                        isLargeRow ? movie.poster_path : movie.backdrop_path
+                    }`} alt = {movie.name}/>
+                )
+                
             ))}
             </div>
            
