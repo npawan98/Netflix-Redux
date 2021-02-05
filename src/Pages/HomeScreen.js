@@ -1,14 +1,35 @@
 import React from 'react'
+import Banner from '../Components/Banner'
 import Navbar from '../Components/Navbar'
 import './HomeScreen.css'
 
 function HomeScreen() {
     return (
         <div className = "homeScreen">
-        {/*TODO: Navbar*/}
         <Navbar/>
 
         {/*TODO: banner*/}
+        <Banner/>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1> <h1>Test</h1>
+        <h1>Test</h1>
+        <h1>Test</h1> <h1>Test</h1>
+       
+        
 
         {/*TODO:Rows*/}
             
