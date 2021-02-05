@@ -1,6 +1,8 @@
 import React from 'react'
 import Banner from '../Components/Banner'
 import Navbar from '../Components/Navbar'
+import requests from '../Requests'
+import Row from '../Components/Row'
 import './HomeScreen.css'
 
 function HomeScreen() {
@@ -8,31 +10,20 @@ function HomeScreen() {
         <div className = "homeScreen">
         <Navbar/>
 
-        {/*TODO: banner*/}
         <Banner/>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1> <h1>Test</h1>
-        <h1>Test</h1>
-        <h1>Test</h1> <h1>Test</h1>
-       
         
 
         {/*TODO:Rows*/}
-            
+        <Row title = "NETFLIX Originals" fetchUrl={requests.fetchNetflixOriginals} isLargeRow/>
+        <Row title = "Trending Now" fetchUrl={requests.fetchTrending}/>
+        <Row title = "Top Rated" fetchUrl={requests.fetchTopRated}/>
+        <Row title = "Action Movies" fetchUrl={requests.fetchActionMovies}/>
+        <Row title = "Comedy Movies" fetchUrl={requests.fetchComedyMovies}/>
+        <Row title = "Horror Movies" fetchUrl={requests.fetchHorrorMovies}/>
+        <Row title = "Romance Movies" fetchUrl={requests.fetchRomanceMovies}/>
+        <Row title = "Documentaries" fetchUrl={requests.fetchDocumentaries}/>
+
+        
         </div>
     )
 }
